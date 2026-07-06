@@ -17,4 +17,3 @@ numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server
     --max_num_seqs 190 \
     --kv-cache-dtype int8_per_token_head \
     --gpu_memory_utilization 0.90 \
-	-3

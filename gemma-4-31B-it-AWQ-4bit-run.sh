@@ -18,4 +18,3 @@ numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server
     --gpu_memory_utilization 0.95 \
 	--enable-auto-tool-choice \
     --tool-call-parser gemma4 \
-	-03

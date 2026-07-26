@@ -1,3 +1,7 @@
 models
 .cache
 *.pyc
+*-4bit
+*-8bit
+*-Int4
+*.gguf

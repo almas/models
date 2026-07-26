@@ -5,7 +5,7 @@ export OMP_NUM_THREADS=1
 export VLLM_ALLREDUCE_USE_SYMM_MEM=0
 
 numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server \
-    --model ./model/gemma-4-31B-it-AWQ-4bit \
+    --model ./gemma-4-31B-it-AWQ-4bit \
     --dtype auto \
     --tensor-parallel-size 2 \
 	--generation-config vllm \

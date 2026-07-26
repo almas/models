@@ -18,7 +18,7 @@ export VLLM_ALLREDUCE_USE_SYMM_MEM=0
 
 # vllm serve \
 numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server \
-    --model ./model/cyankiwi-Qwen3-Coder-30B-A3B-Instruct-AWQ-8bit \
+    --model ./cyankiwi-Qwen3-Coder-30B-A3B-Instruct-AWQ-8bit \
     --dtype auto \
     --tensor-parallel-size 2 \
 	--generation-config vllm \

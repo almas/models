@@ -1,19 +1,18 @@
 #!/bin/bash
 
 export OMP_NUM_THREADS=1 
-export VLLM_ALLREDUCE_USE_SYMM_MEM=0
+# export VLLM_ALLREDUCE_USE_SYMM_MEM=0
 
-# vllm serve \
 numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server \
-    --model ./model/Qwen3.6-35B-A3B-AWQ-4bit \
+    --model Qwen3.6-35B-A3B-AWQ-4bit \
     --dtype auto \
     --tensor-parallel-size 2 \
-	--generation-config vllm \
+    --generation-config vllm \
     --trust-remote-code \
     --host 0.0.0.0 \
     --port 8000 \
-    --max_num_batched_tokens 8192 \
-    --max_model_len 256000 \
-    --max_num_seqs 190 \
-    --kv-cache-dtype int8_per_token_head \
-    --gpu_memory_utilization 0.90 \
+    --max-num-batched-tokens 8192 \
+    --max-model-len 65536 \
+    --max-num-seqs 64 \
+    --kv-cache-dtype fp8 \
+    --gpu-memory-utilization 0.92

@@ -2,8 +2,10 @@
 
 export OMP_NUM_THREADS=1 
 # export VLLM_ALLREDUCE_USE_SYMM_MEM=0
+export CUDA_HOME=$CONDA_PREFIX
+export PATH=$CUDA_HOME/bin:$PATH
 
-numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server \
+vllm serve \
     --model Qwen3.6-35B-A3B-AWQ-4bit \
     --dtype auto \
     --tensor-parallel-size 2 \
@@ -12,7 +14,8 @@ numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server
     --host 0.0.0.0 \
     --port 8000 \
     --max-num-batched-tokens 8192 \
-    --max-model-len 65536 \
+    --max-model-len 64072 \
     --max-num-seqs 64 \
     --kv-cache-dtype fp8 \
-    --gpu-memory-utilization 0.92
+    --gpu-memory-utilization 0.9
+	# --enable-prefix-caching

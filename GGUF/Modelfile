@@ -1,0 +1,7 @@
+# Point to where Docker sees the file internally
+FROM /root/local_models/ManniX-ITA--Qwen3.6-27B-A3B-Coder-MTP.gguf
+
+# Optional: Add custom parameters like context window or system instructions
+PARAMETER num_ctx 8192
+SYSTEM "You are a helpful, brilliant local AI assistant running on a Radeon Pro V420."
+

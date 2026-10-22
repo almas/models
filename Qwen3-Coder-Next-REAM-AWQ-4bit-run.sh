@@ -13,9 +13,9 @@ numactl --cpunodebind=0 --membind=0 python -m vllm.entrypoints.openai.api_server
     --host 0.0.0.0 \
     --port 8000 \
     --max-num-batched-tokens 8192 \
-    --max-model-len 131072 \
+    --max-model-len 100072 \
     --max-num-seqs 64 \
     --kv-cache-dtype fp8 \
-    --gpu-memory-utilization 0.90 \
+    --gpu-memory-utilization 0.8 \
     --enable-auto-tool-choice \
     --tool-call-parser qwen3_xml

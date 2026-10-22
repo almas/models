@@ -17,5 +17,7 @@ vllm serve \
     --max-model-len 64072 \
     --max-num-seqs 64 \
     --kv-cache-dtype fp8 \
-    --gpu-memory-utilization 0.9
+	--tool-call-parser qwen3_xml \
+    --reasoning-parser qwen3 \
+    --gpu-memory-utilization 0.8
 	# --enable-prefix-caching

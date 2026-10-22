@@ -5,3 +5,4 @@ models
 *-8bit
 *-Int4
 *.gguf
+models*
